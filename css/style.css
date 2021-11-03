@@ -1,0 +1,161 @@
+:root {
+  --light-grayish-cyan: hsl(189, 41%, 97%);
+  --light-grayish-cyan-secondary: hsl(185, 41%, 84%);
+  --dark-grayish-cyan: hsl(184, 14%, 56%);
+  --dark-grayish-cyan-secondary: hsl(186, 14%, 43%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --strong-cyan: hsl(172, 67%, 45%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 24px;
+}
+body {
+  background-color: var(--light-grayish-cyan-secondary);
+}
+
+/* Title */
+header {
+  margin: 5vh 0;
+}
+header h1 {
+  text-align: center;
+  letter-spacing: 10px;
+  color: var(--dark-grayish-cyan-secondary);
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: white;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+form label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark-grayish-cyan-secondary);
+}
+form input {
+  background-color: var(--light-grayish-cyan);
+  border-radius: 5px;
+  outline: 0;
+  border: none;
+}
+/* Bill */
+.bill-form {
+  margin: 20px 0;
+}
+.bill-info {
+  width: 85%;
+  margin: 0 auto;
+  color: var(--dark-grayish-cyan);
+}
+/* Inputs Of Bill and People */
+.input-bill,
+.input-people {
+  position: relative;
+  color: var(--dark-grayish-cyan);
+}
+.input-bill input,
+.input-people input {
+  padding: 10px;
+  width: 95%;
+}
+.fa-dollar-sign {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+}
+.fa-user {
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+}
+/* Select Tip */
+.select-tip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+.select-tip .tip {
+  background-color: var(--very-dark-cyan);
+  padding: 5px 40px;
+  color: white;
+  outline: 0;
+}
+.select-tip input {
+  width: 30%;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+}
+.input-tip,
+.input-tip::placeholder {
+  color: var(--very-dark-cyan);
+}
+/* Tip Total */
+.total-bill {
+  padding: 40px 40px;
+  background-color: var(--very-dark-cyan);
+  margin: 20px 20px 20px 0;
+  border-radius: 20px;
+  color: white;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+}
+.price h2 {
+  color: var(--strong-cyan);
+  font-size: 35px;
+}
+.tip-amount,
+.total-person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20vw;
+  margin: 15px 0;
+}
+.tip-amount p,
+.total-person p {
+  font-size: 16px;
+  font-weight: 700;
+}
+.tip-amount span,
+.total-person span {
+  font-size: 16px;
+  color: var(--dark-grayish-cyan);
+}
+.reset {
+  width: 100%;
+  border: none;
+  outline: 0;
+  border-radius: 5px;
+  margin-top: 80px;
+  background-color: hsl(183, 64%, 26%);
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.5s linear;
+}
+.reset:hover {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  form {
+    flex-direction: column;
+    width: 100%;
+  }
+}

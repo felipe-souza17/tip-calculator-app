@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/bfb7599492.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SPLI<br />TTER</h1>
+    </header>
+
+    <form>
+      <div class="bill-form">
+        <div class="bill-info">
+          <label for="bill">Bill</label>
+          <div class="input-bill">
+            <i class="fas fa-dollar-sign"></i>
+            <input type="text" name="bill" id="" dir="rtl" placeholder="0" />
+          </div>
+          <label for="">Select Tip %</label>
+          <div class="select-tip">
+            <input type="button" value="5%" class="tip" />
+            <input type="button" value="10%" class="tip" />
+            <input type="button" value="15%" class="tip" />
+            <input type="button" value="25%" class="tip" />
+            <input type="button" value="50%" class="tip" />
+            <input
+              dir="rtl"
+              class="input-tip"
+              placeholder="Custom"
+              type="text"
+            />
+          </div>
+          <label for="people">Number of People</label>
+          <div class="input-people">
+            <i class="fas fa-user"></i>
+            <input type="text" name="people" id="" dir="rtl" placeholder="0" />
+          </div>
+        </div>
+      </div>
+      <div class="total-bill">
+        <div class="price">
+          <div class="tip-amount">
+            <p>Tip Amount<br /><span>/ person</span></p>
+            <h2>$0.00</h2>
+          </div>
+          <div class="total-person">
+            <p>Total<br /><span>/ person</span></p>
+            <h2>$0.00</h2>
+          </div>
+        </div>
+        <button class="reset" disabled>RESET</button>
+      </div>
+    </form>
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+  </body>
+</html>
