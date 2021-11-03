@@ -89,6 +89,11 @@ form input {
   padding: 5px 40px;
   color: white;
   outline: 0;
+  transition: all 0.3s linear;
+}
+.select-tip .tip:hover {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
 }
 .select-tip input {
   width: 30%;
@@ -145,7 +150,7 @@ form input {
   padding: 10px 0;
   font-size: 18px;
   font-weight: 700;
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
 }
 .reset:hover {
   background-color: var(--strong-cyan);
@@ -157,5 +162,17 @@ form input {
   form {
     flex-direction: column;
     width: 100%;
+    border-radius: 20px 20px 0 0;
+  }
+  .total-bill {
+    width: 70%;
+    margin: 20px auto;
+  }
+  .tip-amount,
+  .total-person {
+    width: auto;
+  }
+  .select-tip input {
+    width: 40%;
   }
 }
