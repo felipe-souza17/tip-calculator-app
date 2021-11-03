@@ -50,26 +50,78 @@
           <label for="bill">Bill</label>
           <div class="input-bill">
             <i class="fas fa-dollar-sign"></i>
-            <input type="text" name="bill" id="" dir="rtl" placeholder="0" />
+            <input
+              type="text"
+              name="bill"
+              id="bill"
+              dir="rtl"
+              placeholder="0"
+              value="0"
+              maxlength="18"
+              autocomplete="off"
+            />
           </div>
           <label for="">Select Tip %</label>
           <div class="select-tip">
-            <input type="button" value="5%" class="tip" />
-            <input type="button" value="10%" class="tip" />
-            <input type="button" value="15%" class="tip" />
-            <input type="button" value="25%" class="tip" />
-            <input type="button" value="50%" class="tip" />
+            <input
+              onclick="takePercentage(value)"
+              id="tip_input"
+              type="button"
+              value="5%"
+              class="tip"
+            />
+            <input
+              onclick="takePercentage(value)"
+              id="tip_input"
+              type="button"
+              value="10%"
+              class="tip"
+            />
+            <input
+              onclick="takePercentage(value)"
+              id="tip_input"
+              type="button"
+              value="15%"
+              class="tip"
+            />
+            <input
+              onclick="takePercentage(value)"
+              id="tip_input"
+              type="button"
+              value="25%"
+              class="tip"
+            />
+            <input
+              onclick="takePercentage(value)"
+              id="tip_input"
+              type="button"
+              value="50%"
+              class="tip"
+            />
             <input
               dir="rtl"
               class="input-tip"
               placeholder="Custom"
               type="text"
+              autocomplete="off"
+              maxlength="10"
+              id="custom_tip"
             />
           </div>
           <label for="people">Number of People</label>
+          <span id="warning"></span>
           <div class="input-people">
             <i class="fas fa-user"></i>
-            <input type="text" name="people" id="" dir="rtl" placeholder="0" />
+            <input
+              type="text"
+              name="people"
+              id="number_people"
+              dir="rtl"
+              placeholder="0"
+              value="0"
+              maxlength="3"
+              autocomplete="off"
+            />
           </div>
         </div>
       </div>
@@ -77,17 +129,20 @@
         <div class="price">
           <div class="tip-amount">
             <p>Tip Amount<br /><span>/ person</span></p>
-            <h2>$0.00</h2>
+            <h2 id="tip_price_total">$0.00</h2>
           </div>
           <div class="total-person">
             <p>Total<br /><span>/ person</span></p>
-            <h2>$0.00</h2>
+            <h2 id="price_person_total">$0.00</h2>
           </div>
         </div>
-        <button class="reset" disabled>RESET</button>
+        <button type="button" onclick="calculateBill()" class="reset">
+          RESET
+        </button>
       </div>
     </form>
 
+    <script src="js/script.js"></script>
     <!-- <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
