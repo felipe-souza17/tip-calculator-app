@@ -1,10 +1,12 @@
 let billInput = document.getElementById('bill')
 let peopleInput = document.getElementById('number_people')
+let customInput = document.getElementById('custom_tip')
 let warning = document.getElementById('warning')
 
 bill.addEventListener('input', formIsValid)
 number_people.addEventListener('input', formIsValid)
 
+/* Validates the invoice field, substituting a comma for a period and verifying that it is a valid numbe */
 function validateBill() {
   let billValue = bill.value.replace(',', '.')
 
@@ -17,6 +19,8 @@ function validateBill() {
     return true
   }
 }
+
+/* Validates the number of people, observing if they are a valid number and if they are zero. */
 
 function validatePeople() {
   let peopleValue = number_people.value
@@ -38,29 +42,37 @@ function validatePeople() {
   }
 }
 
-function takePercentage(percentage) {
-  let somethingHere = percentage
-
-  return somethingHere.replace('%', '')
-}
-
+/* Check if the form all fields is valid */
 function formIsValid() {
-  let [billIsValid, peopleIsValid, percentageIsValid] = [
-    validateBill(),
-    validatePeople()
-  ]
+  let [billIsValid, peopleIsValid] = [validateBill(), validatePeople()]
 
-  console.log(
-    `Bill: ${billIsValid}.\nPeople: ${peopleIsValid}.\nPercentage: ${percentageIsValid}.`
-  )
+  if (billIsValid && peopleIsValid) {
+    takePercentage()
+    return true
+  }
 }
 
-function calculateBill() {
-  let price = bill.value
+/* Takes the tip percentage on the inputs and calls the function to calculate the bill */
+function takePercentage(percentage = '0') {
+  let tip = percentage.replace('%', '').replace(',', '.')
 
-  let people = number_people.value
+  if (!isNaN(tip) == false) tip = 0
+  calculateBill(tip)
+}
 
-  let totalBill = price / people
+/* Check if the form is valid and calculate the bill */
+function calculateBill(percentage) {
+  if (formIsValid) {
+    let price = parseFloat(bill.value)
 
-  price_person_total.innerHTML = `$${totalBill.toFixed(2)}`
+    let tip_percentage = parseFloat(percentage)
+
+    let people = parseInt(number_people.value)
+
+    let totalBill = ((tip_percentage / 100) * price + price) / people
+    let totalTipAmount = ((tip_percentage / 100) * price) / people
+
+    price_person_total.innerHTML = `$${totalBill.toFixed(2)}`
+    tip_price_total.innerHTML = `$${totalTipAmount.toFixed(2)}`
+  }
 }
