@@ -3,12 +3,12 @@ let peopleInput = document.getElementById('number_people')
 let customInput = document.getElementById('custom_tip')
 let warning = document.getElementById('warning')
 
-bill.addEventListener('input', formIsValid)
-number_people.addEventListener('input', formIsValid)
+billInput.addEventListener('input', formIsValid)
+peopleInput.addEventListener('input', formIsValid)
 
 /* Validates the invoice field, substituting a comma for a period and verifying that it is a valid numbe */
 function validateBill() {
-  let billValue = bill.value.replace(',', '.')
+  let billValue = billInput.value.replace(',', '.')
 
   if (!isNaN(billValue) == false || billValue <= 0) {
     billInput.style.border = '2px solid #DC8282'
@@ -23,7 +23,7 @@ function validateBill() {
 /* Validates the number of people, observing if they are a valid number and if they are zero. */
 
 function validatePeople() {
-  let peopleValue = number_people.value
+  let peopleValue = peopleInput.value
 
   if (!isNaN(peopleValue) == false) {
     peopleInput.style.border = '2px solid #DC8282'
@@ -63,16 +63,28 @@ function takePercentage(percentage = '0') {
 /* Check if the form is valid and calculate the bill */
 function calculateBill(percentage) {
   if (formIsValid) {
-    let price = parseFloat(bill.value)
+    let price = parseFloat(billInput.value)
 
     let tip_percentage = parseFloat(percentage)
 
-    let people = parseInt(number_people.value)
+    let people = parseInt(peopleInput.value)
 
     let totalBill = ((tip_percentage / 100) * price + price) / people
     let totalTipAmount = ((tip_percentage / 100) * price) / people
 
-    price_person_total.innerHTML = `$${totalBill.toFixed(2)}`
-    tip_price_total.innerHTML = `$${totalTipAmount.toFixed(2)}`
+    if (String(totalBill).includes('NaN')) {
+      price_person_total.innerHTML = `$0.00`
+      tip_price_total.innerHTML = `$0.00`
+    } else {
+      price_person_total.innerHTML = `$${totalBill.toFixed(2)}`
+      tip_price_total.innerHTML = `$${totalTipAmount.toFixed(2)}`
+    }
   }
+}
+
+/* Reset the fields */
+function resetInputs() {
+  billInput.value = ''
+  customInput.value = ''
+  peopleInput.value = ''
 }
